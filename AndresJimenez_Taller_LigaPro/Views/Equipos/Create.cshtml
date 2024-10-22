@@ -1,12 +1,12 @@
 ﻿@model AndresJimenez_Taller_LigaPro.Models.Equipo
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Crear Nuevo Equipo";
 }
 
-<h1>Create</h1>
+<h1>Crear Equipo</h1>
 
-<h4>Equipo</h4>
+<h4>Ingresa los datos del Equipo</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -33,14 +33,14 @@
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Create" class="btn btn-success" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div class="col-md-4">
+    <a asp-action="Index">Regresar</a>
 </div>
 
 @section Scripts {
