@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<AndresJimenez_Taller_LigaPro.Models.Estadio>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Estadios";
 }
 
-<h1>Index</h1>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>ESTADIOS</h1>
+    <a asp-action="Create" class="btn btn-primary">Crear Nuevo Estadio</a>
+</div>
 
-<p>
-    <a asp-action="Create">Crear Nuevo Estadio</a>
-</p>
-<table class="table">
+<table class="table text-center">
     <thead>
         <tr>
             <th>

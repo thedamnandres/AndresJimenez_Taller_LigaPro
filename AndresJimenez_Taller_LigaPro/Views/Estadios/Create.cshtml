@@ -32,15 +32,16 @@
                 <input asp-for="Capacidad" class="form-control" />
                 <span asp-validation-for="Capacidad" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-success" />
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <input type="submit" value="Crear" class="btn btn-primary w-100" />
+                </div>
+                <div class="col-md-6 text-end">
+                    <a asp-action="Index" class="btn btn-secondary w-100">Regresar</a>
+                </div>
             </div>
         </form>
     </div>
-</div>
-
-<div class="col-md-4">
-    <a asp-action="Index">Regresar</a>
 </div>
 
 @section Scripts {

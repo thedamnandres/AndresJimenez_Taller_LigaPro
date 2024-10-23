@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<AndresJimenez_Taller_LigaPro.Models.Jugador>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Jugadores";
 }
 
-<h1>Index</h1>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>JUGADORES</h1>
+    <a asp-action="Create" class="btn btn-primary">Crear Nuevo Jugador</a>
+</div>
 
-<p>
-    <a asp-action="Create">Crear Nuevo Jugador</a>
-</p>
-<table class="table">
+<table class="table text-center">
     <thead>
         <tr>
             <th>
@@ -40,7 +40,7 @@
                 @Html.DisplayFor(modelItem => item.Edad)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Equipo.Id)
+                @Html.DisplayFor(modelItem => item.Equipo.Name)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |

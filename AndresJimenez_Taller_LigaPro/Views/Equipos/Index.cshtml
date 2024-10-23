@@ -1,15 +1,15 @@
 ﻿@model IEnumerable<AndresJimenez_Taller_LigaPro.Models.Equipo>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Equipos";
 }
 
-<h1>Index</h1>
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1>EQUIPOS</h1>
+    <a asp-action="Create" class="btn btn-primary">Crear Nuevo Equipo</a>
+</div>
 
-<p>
-    <a asp-action="Create">Crear Nuevo Equipo</a>
-</p>
-<table class="table">
+<table class="table text-center">
     <thead>
         <tr>
             <th>
@@ -39,9 +39,20 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Titulos)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Extranjeros)
-            </td>
+                <td>
+                    @if (item.Extranjeros)
+                    {
+                        <span class="text-success">
+                            <i class="bi bi-check-circle-fill"></i> Sí
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="text-danger">
+                            <i class="bi bi-x-circle-fill"></i> No
+                        </span>
+                    }
+                </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
