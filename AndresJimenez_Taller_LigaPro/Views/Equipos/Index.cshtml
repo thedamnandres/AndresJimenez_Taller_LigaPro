@@ -4,7 +4,7 @@
     ViewData["Title"] = "Equipos";
 }
 
-<div class="d-flex justify-content-between align-items-center mb-3">
+<div class="d-flex justify-content-between align-items-center mb-3 text-white">
     <h1>EQUIPOS</h1>
     <a asp-action="Create" class="btn btn-primary">Crear Nuevo Equipo</a>
 </div>
@@ -13,7 +13,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                Nombre
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Ciudad)
@@ -53,11 +53,11 @@
                         </span>
                     }
                 </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
-            </td>
+             <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary btn-sm">Editar</a>
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm mx-1">Detalles</a>
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Eliminar</a>
+             </td>
         </tr>
 }
     </tbody>

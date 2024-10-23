@@ -19,12 +19,34 @@ namespace AndresJimenez_Taller_LigaPro.Controllers
             _context = context;
         }
 
+        //// GET: Jugadores
+        //public async Task<IActionResult> Index()
+        //{
+        //    var andresJimenez_Taller_LigaProContext = _context.Jugadores.Include(j => j.Equipo);
+        //    return View(await andresJimenez_Taller_LigaProContext.ToListAsync());
+        //}
+
         // GET: Jugadores
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? equipoId)
         {
-            var andresJimenez_Taller_LigaProContext = _context.Jugadores.Include(j => j.Equipo);
-            return View(await andresJimenez_Taller_LigaProContext.ToListAsync());
+            // Obtener todos los equipos para mostrarlos en el filtro
+            var equipos = await _context.Set<Equipo>().ToListAsync();
+            ViewBag.Equipos = new SelectList(equipos, "Id", "Name");
+
+            // Obtener la lista de jugadores, incluyendo la información del equipo
+            IQueryable<Jugador> jugadores = _context.Jugadores.Include(j => j.Equipo);
+
+            // Filtrar jugadores si se proporciona un equipoId
+            if (equipoId.HasValue)
+            {
+                jugadores = jugadores.Where(j => j.IdEquipo == equipoId.Value);
+            }
+
+            // Devolver la lista filtrada a la vista
+            return View(await jugadores.ToListAsync());
         }
+
+
 
         // GET: Jugadores/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -82,7 +104,7 @@ namespace AndresJimenez_Taller_LigaPro.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdEquipo"] = new SelectList(_context.Set<Equipo>(), "Id", "Id", jugador.IdEquipo);
+            ViewData["IdEquipo"] = new SelectList(_context.Set<Equipo>(), "Id", "Name", jugador.IdEquipo);
             return View(jugador);
         }
 
@@ -118,7 +140,7 @@ namespace AndresJimenez_Taller_LigaPro.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEquipo"] = new SelectList(_context.Set<Equipo>(), "Id", "Id", jugador.IdEquipo);
+            ViewData["IdEquipo"] = new SelectList(_context.Set<Equipo>(), "Id", "Name", jugador.IdEquipo);
             return View(jugador);
         }
 

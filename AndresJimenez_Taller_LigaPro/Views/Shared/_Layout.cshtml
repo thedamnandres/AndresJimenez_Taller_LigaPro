@@ -20,16 +20,20 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" ? "active" : "")"
+                               asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Jugadores" asp-action="Index">Jugador</a>
+                            <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Jugadores" ? "active" : "")"
+                               asp-area="" asp-controller="Jugadores" asp-action="Index">Jugadores</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Equipos" asp-action="Index">Equipo</a>
+                            <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Equipos" ? "active" : "")"
+                               asp-area="" asp-controller="Equipos" asp-action="Index">Equipos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Estadios" asp-action="Index">Estadio</a>
+                            <a class="nav-link text-light @(ViewContext.RouteData.Values["controller"]?.ToString() == "Estadios" ? "active" : "")"
+                               asp-area="" asp-controller="Estadios" asp-action="Index">Estadios</a>
                         </li>
                     </ul>
                 </div>
@@ -43,7 +47,7 @@
     </div>
 
     <footer class="footer text-muted">
-        <div class="container">
+        <div class="container text-white">
             &copy; 2024 - Realizado por Andrés Jiménez
         </div>
     </footer>

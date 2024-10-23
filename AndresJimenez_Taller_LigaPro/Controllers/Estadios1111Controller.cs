@@ -10,23 +10,22 @@ using AndresJimenez_Taller_LigaPro.Models;
 
 namespace AndresJimenez_Taller_LigaPro.Controllers
 {
-    public class EstadiosController : Controller
+    public class Estadios1111Controller : Controller
     {
         private readonly AndresJimenez_Taller_LigaProContext _context;
 
-        public EstadiosController(AndresJimenez_Taller_LigaProContext context)
+        public Estadios1111Controller(AndresJimenez_Taller_LigaProContext context)
         {
             _context = context;
         }
 
-        // GET: Estadios1
+        // GET: Estadios
         public async Task<IActionResult> Index()
         {
-            var andresJimenez_Taller_LigaProContext = _context.Estadio.Include(e => e.Equipo);
-            return View(await andresJimenez_Taller_LigaProContext.ToListAsync());
+            return View(await _context.Estadio.ToListAsync());
         }
 
-        // GET: Estadios1/Details/5
+        // GET: Estadios/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -35,7 +34,6 @@ namespace AndresJimenez_Taller_LigaPro.Controllers
             }
 
             var estadio = await _context.Estadio
-                .Include(e => e.Equipo)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (estadio == null)
             {
@@ -45,19 +43,18 @@ namespace AndresJimenez_Taller_LigaPro.Controllers
             return View(estadio);
         }
 
-        // GET: Estadios1/Create
+        // GET: Estadios/Create
         public IActionResult Create()
         {
-            ViewData["IdEquipo"] = new SelectList(_context.Equipo, "Id", "Name");
             return View();
         }
 
-        // POST: Estadios1/Create
+        // POST: Estadios/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Nombre,Direccion,Ciudad,Capacidad,IdEquipo")] Estadio estadio)
+        public async Task<IActionResult> Create([Bind("Id,Nombre,Direccion,Ciudad,Capacidad")] Estadio estadio)
         {
             if (ModelState.IsValid)
             {
@@ -65,11 +62,10 @@ namespace AndresJimenez_Taller_LigaPro.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEquipo"] = new SelectList(_context.Equipo, "Id", "Name", estadio.IdEquipo);
             return View(estadio);
         }
 
-        // GET: Estadios1/Edit/5
+        // GET: Estadios/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -82,16 +78,15 @@ namespace AndresJimenez_Taller_LigaPro.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdEquipo"] = new SelectList(_context.Equipo, "Id", "Id", estadio.IdEquipo);
             return View(estadio);
         }
 
-        // POST: Estadios1/Edit/5
+        // POST: Estadios/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Direccion,Ciudad,Capacidad,IdEquipo")] Estadio estadio)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Nombre,Direccion,Ciudad,Capacidad")] Estadio estadio)
         {
             if (id != estadio.Id)
             {
@@ -118,11 +113,10 @@ namespace AndresJimenez_Taller_LigaPro.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEquipo"] = new SelectList(_context.Equipo, "Id", "Id", estadio.IdEquipo);
             return View(estadio);
         }
 
-        // GET: Estadios1/Delete/5
+        // GET: Estadios/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -131,7 +125,6 @@ namespace AndresJimenez_Taller_LigaPro.Controllers
             }
 
             var estadio = await _context.Estadio
-                .Include(e => e.Equipo)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (estadio == null)
             {
@@ -141,7 +134,7 @@ namespace AndresJimenez_Taller_LigaPro.Controllers
             return View(estadio);
         }
 
-        // POST: Estadios1/Delete/5
+        // POST: Estadios/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

@@ -4,12 +4,12 @@
     ViewData["Title"] = "Crear Nuevo Equipo";
 }
 
-<h1>Crear Equipo</h1>
+<h1 class="text-white">Crear Equipo</h1>
 
-<h4>Ingresa los datos del Equipo</h4>
+<p class="text-white">Ingresa los datos del Equipo</p>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 text-white">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -27,7 +27,7 @@
                 <input asp-for="Titulos" class="form-control" />
                 <span asp-validation-for="Titulos" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
+            <div class="form-group form-check mt-2">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Extranjeros" /> @Html.DisplayNameFor(model => model.Extranjeros)
                 </label>

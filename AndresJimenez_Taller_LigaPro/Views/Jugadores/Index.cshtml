@@ -4,10 +4,26 @@
     ViewData["Title"] = "Jugadores";
 }
 
-<div class="d-flex justify-content-between align-items-center mb-3">
+<div class="d-flex justify-content-between align-items-center mb-3 text-white">
     <h1>JUGADORES</h1>
     <a asp-action="Create" class="btn btn-primary">Crear Nuevo Jugador</a>
 </div>
+
+<form method="get" action="@Url.Action("Index")">
+    <div class="form-row align-items-center">
+        <div class="col-auto my-1 text-white">
+            <label class="sr-only" for="equipoId">Filtrar por Equipo:</label>
+            <select id="equipoId" name="equipoId" class="custom-select d-inline mr-2">
+                <option value="">Selecciona un Equipo</option>
+                @foreach (var equipo in ViewBag.Equipos as IEnumerable<SelectListItem>)
+                {
+                    <option value="@equipo.Value">@equipo.Text</option>
+                }
+            </select>
+            <button type="submit" class="btn btn-primary d-inline" style="padding: 0.15rem 0.6rem; font-size: 0.8rem;">Filtrar</button>
+        </div>
+    </div>
+</form>
 
 <table class="table text-center">
     <thead>
@@ -28,26 +44,27 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Posicion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Edad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Equipo.Name)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Editar</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Detalles</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Posicion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Edad) años
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Equipo.Name)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-secondary btn-sm">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info btn-sm mx-1">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

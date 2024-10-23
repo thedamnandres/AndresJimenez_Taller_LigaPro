@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AndresJimenez_Taller_LigaPro.Models
 {
@@ -17,5 +18,11 @@ namespace AndresJimenez_Taller_LigaPro.Models
         [MaxLength(50)]
         public string Ciudad { get; set; }
         public int Capacidad { get; set; }
+
+        public Equipo? Equipo { get; set; }
+
+        [ForeignKey("Equipo")]
+        public int IdEquipo { get; set; }
+
     }
 }

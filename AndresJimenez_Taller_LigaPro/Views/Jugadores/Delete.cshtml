@@ -4,13 +4,11 @@
     ViewData["Title"] = "Delete";
 }
 
-<h1>Eliminar</h1>
-
-<h3>Seguro que deseas borrar este Jugador?</h3>
+<h1 class="text-white">Eliminar Jugador</h1>
 <div>
-    <h4>Jugador</h4>
+    
     <hr />
-    <dl class="row">
+    <dl class="row text-white">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Nombre)
         </dt>
@@ -36,10 +34,10 @@
             @Html.DisplayFor(model => model.Equipo.Id)
         </dd>
     </dl>
-    
-    <form asp-action="Delete">
+
+    <form asp-action="Delete" class="d-flex gap-2">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index">Regresar</a>
+        <input type="submit" value="Eliminar" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-secondary">Regresar</a>
     </form>
 </div>

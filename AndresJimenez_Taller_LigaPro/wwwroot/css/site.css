@@ -20,3 +20,37 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.nav-link.active {
+    background-color: #808080 ; 
+    color: white !important; 
+    border-radius: 5px; 
+}
+
+body {
+    background-image: url('https://ecuadorchronicle.com/wp-content/uploads/2019/02/ligapro.jpg'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.table {
+    border-radius: 10px; 
+    overflow: hidden;
+}
+    
+.table thead th {
+    background-color: rgba(0, 0, 0, 0.8); 
+    color: white; 
+    font-weight: bold;
+}
+
+.btn-smaller {
+    padding: 0.25rem 0.5rem; 
+    font-size: 0.9rem; 
+}
+
+
+
+

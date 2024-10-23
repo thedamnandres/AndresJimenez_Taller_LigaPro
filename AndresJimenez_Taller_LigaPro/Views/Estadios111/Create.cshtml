@@ -1,15 +1,15 @@
-﻿@model AndresJimenez_Taller_LigaPro.Models.Jugador
+﻿@model AndresJimenez_Taller_LigaPro.Models.Estadio
 
 @{
     ViewData["Title"] = "Create";
 }
 
-<h1 class="text-white"> Crear Jugador</h1>
+<h1>Crear Estadio</h1>
 
-<p class="text-white">Ingresa los datos del Jugador</p>
+<h4>Ingresa los datos del Estadio</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4  text-white">
+    <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
@@ -18,18 +18,19 @@
                 <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Posicion" class="control-label"></label>
-                <input asp-for="Posicion" class="form-control" />
-                <span asp-validation-for="Posicion" class="text-danger"></span>
+                <label asp-for="Direccion" class="control-label"></label>
+                <input asp-for="Direccion" class="form-control" />
+                <span asp-validation-for="Direccion" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Edad" class="control-label"></label>
-                <input asp-for="Edad" class="form-control" />
-                <span asp-validation-for="Edad" class="text-danger"></span>
+                <label asp-for="Ciudad" class="control-label"></label>
+                <input asp-for="Ciudad" class="form-control" />
+                <span asp-validation-for="Ciudad" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="IdEquipo" class="control-label"></label>
-                <select asp-for="IdEquipo" class ="form-control" asp-items="ViewBag.IdEquipo"></select>
+                <label asp-for="Capacidad" class="control-label"></label>
+                <input asp-for="Capacidad" class="form-control" />
+                <span asp-validation-for="Capacidad" class="text-danger"></span>
             </div>
             <div class="row mt-3">
                 <div class="col-md-6">

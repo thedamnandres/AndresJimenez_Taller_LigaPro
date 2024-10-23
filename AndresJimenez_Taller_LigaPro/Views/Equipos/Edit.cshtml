@@ -4,12 +4,10 @@
     ViewData["Title"] = "Editar";
 }
 
-<h1>Editar</h1>
-
-<h4>Equipo</h4>
+<h1 class="text-white">Editar Equipo</h1>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-4 text-white">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
@@ -28,20 +26,21 @@
                 <input asp-for="Titulos" class="form-control" />
                 <span asp-validation-for="Titulos" class="text-danger"></span>
             </div>
-            <div class="form-group form-check">
+            <div class="form-group form-check mt-2">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Extranjeros" /> @Html.DisplayNameFor(model => model.Extranjeros)
                 </label>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <input type="submit" value="Editar" class="btn btn-primary w-100" />
+                </div>
+                <div class="col-md-6 text-end">
+                    <a asp-action="Index" class="btn btn-secondary w-100">Regresar</a>
+                </div>
             </div>
         </form>
     </div>
-</div>
-
-<div class="col-md-4">
-    <a asp-action="Index">Regresar</a>
 </div>
 
 @section Scripts {
