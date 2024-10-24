@@ -82,7 +82,7 @@ namespace AndresJimenez_Taller_LigaPro.Controllers
             {
                 return NotFound();
             }
-            ViewData["IdEquipo"] = new SelectList(_context.Equipo, "Id", "Id", estadio.IdEquipo);
+            ViewData["IdEquipo"] = new SelectList(_context.Equipo, "Id", "Name", estadio.IdEquipo);
             return View(estadio);
         }
 
@@ -118,7 +118,7 @@ namespace AndresJimenez_Taller_LigaPro.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdEquipo"] = new SelectList(_context.Equipo, "Id", "Id", estadio.IdEquipo);
+            ViewData["IdEquipo"] = new SelectList(_context.Equipo, "Id", "Name", estadio.IdEquipo);
             return View(estadio);
         }
 

@@ -18,13 +18,8 @@ namespace AndresJimenez_Taller_LigaPro.Controllers
         {
             _context = context;
         }
+    
 
-        //// GET: Jugadores
-        //public async Task<IActionResult> Index()
-        //{
-        //    var andresJimenez_Taller_LigaProContext = _context.Jugadores.Include(j => j.Equipo);
-        //    return View(await andresJimenez_Taller_LigaProContext.ToListAsync());
-        //}
 
         // GET: Jugadores
         public async Task<IActionResult> Index(int? equipoId)
